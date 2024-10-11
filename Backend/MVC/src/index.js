@@ -1,13 +1,20 @@
-require('dotenv').config();
-// require("dotenv").config({path:'./env'})
-// const connectDB = require("./DataBase/index.js")
-const connectDB = require('./DataBase/index')
+require("dotenv").config();
+const connectDB = require("./DataBase/index");
+const app = require('./app')
 
 connectDB()
-
-
-
-
+  .then(() => {
+    app.on("error",(error)=>{
+      console.log("Error :- ",error)
+      throw error
+    });
+    app.listen(process.env.PORT || 8000,()=>{
+      console.log("Connection Successfully Made...");
+    })
+  })
+  .catch((err) => {
+    console.log("Coonection Failed with MongoDB :-", err);
+  });
 
 // Method Simple
 /*
