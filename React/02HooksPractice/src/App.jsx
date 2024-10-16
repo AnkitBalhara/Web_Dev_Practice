@@ -6,8 +6,24 @@ function App() {
 
   const UpadateValue = () => {
     if (counter > 9) return alert("Reached to the Limit !!!");
-    counter = counter + 1;
-    setCounter(counter);
+    // counter = counter + 1;
+    // setCounter(counter);
+
+    // Interview Questions....
+
+    // As according to the below code it will take only the value which is at the last...(counter+0.6) but,
+    // Some other aspects of this Question is below...
+    // setCounter(counter+1)
+    // setCounter(counter+2)
+    // setCounter(counter+0.6)
+
+    // Other Aspects of this code is...
+    // If we put setCounter(previousValue=>previousValue+1) then it update the state and then after move to 
+    // next line and if in next line the code is same then this will update it first and then move further...
+    setCounter(previousValue=>previousValue+1) // As (previousValue = Counter) and when it update counter value
+    // then only it will move further to the next step.
+    setCounter(previousValue=>previousValue+1)
+    // This will 
   };
 
   const RemoveValue = () => {
