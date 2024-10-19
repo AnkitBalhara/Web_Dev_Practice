@@ -33,7 +33,7 @@ function App() {
   };
   return (
     <>
-      <h1 className="from-neutral-500">Jai Shree Ram </h1>
+      <h1 className="text-center bg-slate-800 text-4xl font-bold p-3 box-border h-20 ">Jai Shree Ram </h1>
       <h3>Practice UseState...</h3>
       <button onClick={UpadateValue}>Add Value</button>
       <button onClick={RemoveValue}>Remove Value</button>
