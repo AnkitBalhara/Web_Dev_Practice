@@ -7,6 +7,7 @@ function App() {
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
   const [buttonCopy, setButtonCopy] = useState("Copy");
+  const [isCopied, setIsCopied] = useState(false);
 
   const passwordGenerator = useCallback(() => {
     let pass = "";
@@ -24,8 +25,10 @@ function App() {
   const handleCopy = () => {
     navigator.clipboard.writeText(password);
     setButtonCopy("Copied");
+    setIsCopied(true);
     setTimeout(() => {
       setButtonCopy("Copy");
+      setIsCopied(false);
     }, 2000);
   };
 
@@ -48,7 +51,9 @@ function App() {
             readOnly
           />
           <button
-            className="bg-blue-600 text-white px-3 py-1 "
+            className={`text-white px-3 py-1 ${
+              isCopied ? "bg-green-700" : "bg-blue-600"
+            }`}
             onClick={handleCopy}
           >
             {buttonCopy}
