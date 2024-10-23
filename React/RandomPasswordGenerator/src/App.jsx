@@ -6,6 +6,7 @@ function App() {
   const [nummberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
+  const [buttonCopy, setButtonCopy] = useState("Copy");
 
   const passwordGenerator = useCallback(() => {
     let pass = "";
@@ -19,6 +20,14 @@ function App() {
     }
     setPassword(pass);
   }, [length, nummberAllowed, charAllowed]);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(password);
+    setButtonCopy("Copied");
+    setTimeout(() => {
+      setButtonCopy("Copy");
+    }, 2000);
+  };
 
   useEffect(() => {
     passwordGenerator();
@@ -38,7 +47,12 @@ function App() {
             value={password}
             readOnly
           />
-          <button className="bg-blue-600 text-white px-3 py-1">Copy</button>
+          <button
+            className="bg-blue-600 text-white px-3 py-1 "
+            onClick={handleCopy}
+          >
+            {buttonCopy}
+          </button>
         </div>
         <div className="flex flex-wrap text-md gap-x-2 ">
           <div className="flex items-center gap-x-1 mb-4">
@@ -84,3 +98,13 @@ function App() {
 }
 
 export default App;
+
+// const [buttonText, setButtonText] = useState('Copy');
+
+// const handleCopy = () => {
+//   navigator.clipboard.writeText(password);
+//   setButtonText('Copied');
+//   setTimeout(() => {
+//     setButtonText('Copy');
+//   }, 3000); // Reset text to "Copy" after 5 seconds
+// };
