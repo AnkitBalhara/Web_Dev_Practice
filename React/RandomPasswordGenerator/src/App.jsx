@@ -98,13 +98,3 @@ function App() {
 }
 
 export default App;
-
-// const [buttonText, setButtonText] = useState('Copy');
-
-// const handleCopy = () => {
-//   navigator.clipboard.writeText(password);
-//   setButtonText('Copied');
-//   setTimeout(() => {
-//     setButtonText('Copy');
-//   }, 3000); // Reset text to "Copy" after 5 seconds
-// };
