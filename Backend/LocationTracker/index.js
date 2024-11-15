@@ -16,6 +16,10 @@ app.get("/", (req, res) => {
   res.send("Jai Shree Ram");
 });
 
+io.on("connect",(socketio)=>{
+  console.log("Socket Io Connection done")
+})
+
 server.listen("3000", () => {
   console.log("Server Started");
 });
