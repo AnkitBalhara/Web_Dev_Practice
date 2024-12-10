@@ -5,28 +5,38 @@ import { useNavigate } from "react-router-dom";
 const BMI = () => {
   const [weight, setWeight] = useState(5);
   const [height, setHeight] = useState(4);
+  const [message, setMessage] = useState("");
   const [heightInMeters, setHeightInMeters] = useState(0);
-
 
   const navigate = useNavigate();
 
-  const { name, setName, setAge, setBmi } = useContext(Context);
+  const { name, age, setName, setAge, setBmi } = useContext(Context);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (name == "" || weight == "" || height == "" || age == "") {
+      return setMessage("Invalid Details... ");
+    }
     const foot = (Number(height.split(".")[0]) / 3.281).toFixed(3);
-    const inches = (Number(height.split(".")[1]) / 39.37).toFixed(3);
+    let inches;
+    const heightParts = height.split(".");
+    if (heightParts[1] && !isNaN(Number(heightParts[1]))) {
+      inches = (Number(heightParts[1]) / 39.37).toFixed(3);
+    } else {
+      inches = "0";
+    }
     const totalHeight = Number(foot) + Number(inches);
     const heightInMeters = totalHeight * totalHeight;
     setHeightInMeters(heightInMeters);
     setBmi(weight / heightInMeters);
     setHeight(0);
     setWeight(0);
-    navigate("/report")
+    navigate("/report");
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 border-2 border-white rounded-md shadow-2xl text-slate-50">
+    <div className="max-w-md mx-auto mt-10 p-4 border-2 mb-3 border-white rounded-md shadow-2xl text-slate-50">
+      <div className="text-lg text-red-600">{message}</div>
       <h2 className="text-2xl font-bold mb-4 text-center">Fitness Level</h2>
       <form className="space-y-4">
         <div>

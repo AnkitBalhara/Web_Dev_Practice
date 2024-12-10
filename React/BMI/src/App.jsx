@@ -10,12 +10,12 @@ function App() {
   const [age,setAge] = useState(0);
   const [bmi,setBmi] = useState(0);
 
-  useEffect(() => {
-    const promptName = prompt("Enter Your Name");
-    if (promptName) {
-      setName(promptName);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const promptName = prompt("Enter Your Name");
+  //   if (promptName) {
+  //     setName(promptName);
+  //   }
+  // }, []);
 
   return (
     <Context.Provider value={{ name, setName,age,setAge,bmi,setBmi }}>

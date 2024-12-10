@@ -10,7 +10,7 @@ const Home = () => {
         <main className="flex flex-col items-center p-6">
           <div className="bg-slate-200 rounded-lg shadow-md p-6 max-w-md w-full text-center">
             <h2 className="text-2xl font-semibold text-gray-600  mb-3">
-              {name}
+              { name || "Hi, User!!!"}
             </h2>
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               Welcome to the BMI Calculator{" "}
