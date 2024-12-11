@@ -1,6 +1,6 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment } from "./redux/counter/createSlice";
+import { decrement, increment, multiply } from "./redux/counter/createSlice";
 
 function App() {
   const count = useSelector((state) => state.counter.value); // Use "counter" as the key
@@ -13,6 +13,7 @@ function App() {
       <div>Jai Shree Ram</div>
       <div>{count}</div>
       <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(multiply())}>*</button>
     </>
   );
 }
