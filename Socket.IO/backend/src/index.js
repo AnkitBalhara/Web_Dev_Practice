@@ -11,10 +11,12 @@ const server = createServer(app);
 const io = new Server(server);
 
 io.on("connection", (socket) => {
-  console.log(socket);
+  console.log("ID :-",socket.id);
 });
 
-app.get("/", (req, res) => {});
+app.get("/", (req, res) => {
+  res.status(200).json({messsage:"Jai SiyaRam"})
+});
 
 server.listen(process.env.PORT, () => {
   console.log("Server Connected at Port :-", process.env.PORT);
