@@ -1,21 +1,11 @@
-import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment, multiply } from "./redux/counter/createSlice";
+import React from 'react'
 
-function App() {
-  const count = useSelector((state) => state.counter.value); // Use "counter" as the key
-
-  const dispatch = useDispatch();
-
+const App = () => {
   return (
-    <>
-      <button onClick={() => dispatch(decrement())}>-</button>
-      <div>Jai Shree Ram</div>
-      <div>{count}</div>
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(multiply())}>*</button>
-    </>
-  );
+    <div>
+      <h1>Jai Shree Ram</h1>
+    </div>
+  )
 }
 
-export default App;
+export default App
